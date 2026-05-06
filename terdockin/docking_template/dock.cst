@@ -1,0 +1,250 @@
+# cst constraint descriptor for bjks docking  07-10-2018
+# Yue Zhang yuezh@ucdavis.edu
+# NOTE
+# https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/match-cstfile-format
+
+# CHEMISTRY CONSTRAINTS
+
+
+#1 - constrain carbocation to and magneisum pyrophosphate cluster 
+CST::BEGIN
+  TEMPLATE::   ATOM_MAP: 1 atom_name: C20 C18 C17
+  TEMPLATE::   ATOM_MAP: 1 residue3:  Y00
+
+  TEMPLATE::   ATOM_MAP: 2 atom_name: O1 P1 O2
+  TEMPLATE::   ATOM_MAP: 2 residue3:  X00
+
+  CONSTRAINT:: distanceAB:    3.5  0.5    500  0    3
+# CONSTRAINT::    angle_A:  115.0 20.0    50   360. 2
+# CONSTRAINT::    angle_B:  110.0 20.0    50   360. 2
+# CONSTRAINT::  torsion_A:  180.0 50.0    50   360. 2
+# CONSTRAINT:: torsion_AB:    0.0  0.0    0    360. 2
+# CONSTRAINT::  torsion_B:    0.0 40.0    50   180. 2
+CST::END
+
+
+
+
+
+#2 - D73_OD2 to MG3 (mg pp to aspartate residue)
+CST::BEGIN
+  TEMPLATE::   ATOM_MAP: 1 atom_name: MG3 O5 P1
+  TEMPLATE::   ATOM_MAP: 1 residue3:  X00
+	
+  TEMPLATE::   ATOM_MAP: 2 atom_name: OD2 CG CB
+  TEMPLATE::   ATOM_MAP: 2 residue1:  D
+	
+  CONSTRAINT:: distanceAB:    2.5   0.3    500 0    3
+# CONSTRAINT::    angle_A:   65.8   6.5    50  360. 2
+  CONSTRAINT::    angle_B:  145.3  20.0    50  360. 2
+# CONSTRAINT::  torsion_A:   83.6  10.0    50  360. 2
+  CONSTRAINT:: torsion_AB:  128.7  20.0    50  360. 2
+# CONSTRAINT::  torsion_B:  141.0  15.0    50  360. 2
+CST::END
+	
+	
+#3 - D73_OD1 to MG2 (mg pp to aspartate residue)
+CST::BEGIN
+  TEMPLATE::   ATOM_MAP: 1 atom_name: MG2 O7 P2
+  TEMPLATE::   ATOM_MAP: 1 residue3:  X00
+
+  TEMPLATE::   ATOM_MAP: 2 atom_name: OD1 CG CB
+  TEMPLATE::   ATOM_MAP: 2 residue1:  D
+	
+  CONSTRAINT:: distanceAB:    2.5   0.5    500 0    3
+# CONSTRAINT::    angle_A:   87.2  10.0    50  360. 2
+  CONSTRAINT::    angle_B:  129.3  20.0    50  360. 2
+# CONSTRAINT::  torsion_A:  290.3  30.0    50  360. 2
+  CONSTRAINT:: torsion_AB:  290.3  20.0    50  360. 2
+# CONSTRAINT::  torsion_B:  206.6  20.0    50  360. 2
+CST::END
+
+#4 - D77 to MG3 (mg pp to aspartate residue)
+CST::BEGIN
+  TEMPLATE::   ATOM_MAP: 1 atom_name: MG3 O5 P1
+  TEMPLATE::   ATOM_MAP: 1 residue3:  X00
+
+  TEMPLATE::   ATOM_MAP: 2 atom_name: OD2 CG CB
+  TEMPLATE::   ATOM_MAP: 2 residue1:  D
+
+  CONSTRAINT:: distanceAB:    2.5   0.3    500 0    3
+# CONSTRAINT::    angle_A:   85.6  10.0    50  360. 2
+  CONSTRAINT::    angle_B:  107.2  20.0    50  360. 2
+# CONSTRAINT::  torsion_A:  149.6  15.0    50  360. 2
+  CONSTRAINT:: torsion_AB:  155.1  20.0    50  360. 2
+# CONSTRAINT::  torsion_B:  207.8  25.0    50  360. 2
+CST::END
+
+
+#5 - D77 to MG2 (mg pp to aspartate residue)
+CST::BEGIN
+  TEMPLATE::   ATOM_MAP: 1 atom_name: MG2 O7 P2
+  TEMPLATE::   ATOM_MAP: 1 residue3:  X00
+
+  TEMPLATE::   ATOM_MAP: 2 atom_name: OD2 CG CB
+  TEMPLATE::   ATOM_MAP: 2 residue1:  D
+
+  CONSTRAINT:: distanceAB:    2.5   0.3    500 0    3
+# CONSTRAINT::    angle_A:   85.5  10.0    50  360. 2
+  CONSTRAINT::    angle_B:  129.4  20.0    50  360. 2
+# CONSTRAINT::  torsion_A:  202.2  20.0    50  360. 2
+  CONSTRAINT:: torsion_AB:  220.6  20.0    50  360. 2
+# CONSTRAINT::  torsion_B:  351.3  35.0    50  360. 2
+CST::END
+
+
+#6 - N205 to MG1  (mg pp to asparagine residue)
+CST::BEGIN
+  TEMPLATE::   ATOM_MAP: 1 atom_name: MG1 O6 P2
+  TEMPLATE::   ATOM_MAP: 1 residue3:  X00
+
+  TEMPLATE::   ATOM_MAP: 2 atom_name: ND2 CG CB
+  TEMPLATE::   ATOM_MAP: 2 residue1:  N
+
+  CONSTRAINT:: distanceAB:    2.5   0.5   500 0    3
+# CONSTRAINT::    angle_A:   87.4  10.0   50  360. 2
+  CONSTRAINT::    angle_B:  147.3  20.0   50  360. 2
+# CONSTRAINT::  torsion_A:  247.0  25.0   50  360. 2
+  CONSTRAINT:: torsion_AB:   95.4  20.0   50  360. 2
+# CONSTRAINT::  torsion_B:  171.3  20.0   50  360. 2
+CST::END
+
+
+
+
+#OTHER CONSTRAINTS - These are all commented out, but still included for convenience
+
+
+#BASIC WATER CONSTRAINT TO CARBOCATION
+#CST::BEGIN
+#  TEMPLATE::   ATOM_MAP: 1 atom_name: O H1 H2
+#  TEMPLATE::   ATOM_MAP: 1 residue3: Z00
+#
+#  TEMPLATE::   ATOM_MAP: 2 atom_name: C17 C15 C5
+#  TEMPLATE::   ATOM_MAP: 2 residue3:  Y00
+
+# CONSTRAINT:: distanceAB:   3.00  0.3   500   0    3
+# CONSTRAINT::    angle_A:  180.0 30.0    50   360. 2
+# CONSTRAINT::    angle_B:  110.0 15.0   300   360. 2
+# CONSTRAINT::  torsion_A:    0.0  0.0    0    360. 2
+# CONSTRAINT:: torsion_AB:    0.0  0.0    0    360. 2
+# CONSTRAINT::  torsion_B:  90.00 15.0   300   360. 2
+#CST::END
+
+
+
+#DEPROTONATION BY PPO O3
+# CST::BEGIN
+#   TEMPLATE::   ATOM_MAP: 1 atom_name: C20 C10 C17
+#   TEMPLATE::   ATOM_MAP: 1 residue3:  Y00
+
+#   TEMPLATE::   ATOM_MAP: 2 atom_name: O3 P2 O6
+#   TEMPLATE::   ATOM_MAP: 2 residue3:  X00
+  
+#   CONSTRAINT:: distanceAB:    3.0  0.5    500  0    3
+# CST::END
+# # COORDINATION CONSTRAINTS
+
+
+
+#Water to 26E OE1
+#CST::BEGIN
+#  TEMPLATE::   ATOM_MAP: 1 atom_name: O H1 H2
+#  TEMPLATE::   ATOM_MAP: 1 residue3: Z00
+#
+#  TEMPLATE::   ATOM_MAP: 2 atom_name: OE1 CD CG
+#  TEMPLATE::   ATOM_MAP: 2 residue3:  GLU
+#
+#  CONSTRAINT:: distanceAB:    2.8  0.5    50   0    3
+## CONSTRAINT::    angle_A:  180.0 30.0    50   360. 2
+#  CONSTRAINT::    angle_B:  103.8 10.0    30   360. 2
+## CONSTRAINT::  torsion_A:    0.0  0.0    0    360. 2
+## CONSTRAINT:: torsion_AB:    0.0  0.0    0    360. 2
+#  CONSTRAINT::  torsion_B:  191.8 19.0    30   360. 2
+#CST::END
+
+
+
+#Water to 74D OD2
+#CST::BEGIN
+#  TEMPLATE::   ATOM_MAP: 1 atom_name: O H1 H2
+#  TEMPLATE::   ATOM_MAP: 1 residue3: Z00
+#
+#  TEMPLATE::   ATOM_MAP: 2 atom_name: OD2 CG CB
+#  TEMPLATE::   ATOM_MAP: 2 residue3:  ASP
+#
+#  CONSTRAINT:: distanceAB:    3.3  0.5    50   0    3
+## CONSTRAINT::    angle_A:  180.0 30.0    0    360. 2
+#  CONSTRAINT::    angle_B:  100.7 10.0    30   360. 2
+## CONSTRAINT::  torsion_A:    0.0  0.0    0    360. 2
+## CONSTRAINT:: torsion_AB:    0.0  0.0    0    360. 2
+#  CONSTRAINT::  torsion_B:  230.6 23.0    30   360. 2
+#CST::END
+
+
+
+#Introduce F72Y constraints to carbon instead of proton as intermediate is post carbon shift
+#CST::BEGIN
+#  TEMPLATE::	ATOM_MAP: 1 atom_name:	C15 C16 H25
+#  TEMPLATE::	ATOM_MAP: 1 residue3:	Y00
+#
+#  TEMPLATE::	ATOM_MAP: 2 atom_name:	OH CZ CE1
+#  TEMPLATE::	ATOM_MAP: 2 residue1:	Y
+#
+#  CONSTRAINT:: 	distanceAB:   3.6 0.75    500  0    3
+#  CONSTRAINT::     angle_A:    90 13       50  360  2
+#  CONSTRAINT::     angle_B:   120 19      500  360  2
+#CST::END
+
+
+# Active site localizing constraints
+# These constraints serve to ensure the carbocation is in the active site
+
+# CST::BEGIN
+
+#   TEMPLATE::	ATOM_MAP: 1 atom_name:	C13 C3 C2
+#   TEMPLATE::	ATOM_MAP: 1 residue3:	Y00
+
+#   TEMPLATE::	ATOM_MAP: 2 atom_name:	CA C N
+#   TEMPLATE::	ATOM_MAP: 2 residue1:	I
+
+#   CONSTRAINT::	distanceAB: 12.5  5   500 0    5
+
+# CST::END
+
+
+
+# angle constraint -- Not applicable to C9yl+ intermediate as the constrained proton does not exist
+
+#constrain ligand to F72Y angle_alpha
+#CST::BEGIN
+#  TEMPLATE::   ATOM_MAP: 1 atom_name: H25 C15 C14
+#  TEMPLATE::   ATOM_MAP: 1 residue3:  Y00
+#	
+#  TEMPLATE::   ATOM_MAP: 2 atom_name: OH CZ CE1
+#  TEMPLATE::   ATOM_MAP: 2 residue1:  Y
+#	
+#  CONSTRAINT:: distanceAB:    2.5   0.5    500 0    3
+## CONSTRAINT::    angle_A:   65.8   6.5    50  360. 2
+#  CONSTRAINT::    angle_B:  120.0  12.0    500 360. 2
+## CONSTRAINT::  torsion_A:   83.6  10.0    50  360. 2
+## CONSTRAINT:: torsion_AB:  128.7  20.0    50  360. 2
+## CONSTRAINT::  torsion_B:  141.0  15.0    50  360. 2
+#CST::END
+
+
+#constrain ligand to F72Y angle_beta
+#CST::BEGIN
+#  TEMPLATE::   ATOM_MAP: 1 atom_name: H25 C15 C14
+#  TEMPLATE::   ATOM_MAP: 1 residue3:  Y00
+#	
+#  TEMPLATE::   ATOM_MAP: 2 atom_name: OH CZ CE1
+#  TEMPLATE::   ATOM_MAP: 2 residue1:  Y
+#	
+## CONSTRAINT:: distanceAB:    2.5   0.3    500 0    3
+#  CONSTRAINT::    angle_A:  180.0  18.0    100 360. 2
+## CONSTRAINT::    angle_B:  120.0  12.0    500 360. 2
+## CONSTRAINT::  torsion_A:   83.6  10.0    50  360. 2
+## CONSTRAINT:: torsion_AB:  128.7  20.0    50  360. 2
+## CONSTRAINT::  torsion_B:  141.0  15.0    50  360. 2
+#CST::END
